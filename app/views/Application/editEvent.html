@@ -1,0 +1,21 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Logged in as ${me.name}</h1>
+<h1>Calendar of ${calendar.owner.name}</h1>
+
+<form action="@{Application.saveEvent()}" method="GET">
+    <ul>
+        <li>Name:</li><input type="text" name="newEventName" value="${event.name}" />
+        <li>Start:</li><input type="text" name="start" value="${event.printDate(event.start)}" />
+        <li>End:</li><input type="text" name="end" value="${event.printDate(event.end)}" />
+        <li>Public:</li><input type="checkbox" name="isPublic" ${event.isPublic ? ' checked=checked':''} />
+        <input type="hidden" name="calendarName" value="${calendar.name}" />
+        <input type="hidden" name="oldEventName" value="${event.name}" />
+    </ul>
+	<input type="submit" value="Save" />
+</form>
+
+<a href="@{Application.index()}">Home</a>
+<a href="@{Application.getEvents(calendar.owner.name, calendar.name)}">Back</a>
+<a href="@{Application.index()}logout">Logout</a>

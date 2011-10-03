@@ -1,0 +1,19 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Logged in as ${me.name}</h1>
+<h1>Calendar of ${calendar.owner.name}</h1>
+
+    #{list items:events, as:'event'}
+    <ul>
+        <li>Name:	#{if calendar.owner.name == me.name}<a href="@{Application.editEvent(calendar.name, event.name)}">${event.name}</a>#{/if}#{else}${event.name}#{/else}</li>
+        <li>Start:	${event.printDate(event.start)}</li>
+        <li>End:	${event.printDate(event.end)}</li>
+        <li>Public:	${event.isPublic.toString()}</li>
+    </ul>
+    #{/list}
+
+#{if calendar.owner.name == me.name}<a href="@{Application.editEvent(calendar.name, "")}">Add event</a>#{/if}
+<a href="@{Application.index()}">Home</a>
+<a href="@{Application.getCalendars(calendar.owner.name)}">Back</a>
+<a href="@{Application.index()}logout">Logout</a>

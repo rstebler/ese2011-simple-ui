@@ -1,0 +1,16 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Logged in as ${me.name}</h1>
+
+
+${user.name}'s Calendars:
+<ul>
+    #{list items:calendars, as:'calendar'}
+        <li><a href="@{Application.getEvents(calendar.owner.name, calendar.name)}">${calendar.name}</a></li>
+    #{/list}
+</ul>
+
+<a href="@{Application.index()}">Home</a>
+<a href="@{Application.getUsers()}">Users</a>
+<a href="@{Application.index()}logout">Logout</a>
