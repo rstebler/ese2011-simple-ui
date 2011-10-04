@@ -1,0 +1,13 @@
+1. Explain how a typical HTTP request is processed with the framework (the request lifecycle):
+The play! framework follows the MVC (model, view, controller) architercutal pattern.
+When a HTTP request is recieved, the controller (Application.java) invokes the java method which has the same name as the requested site.
+This is the java entry point. There we call methods and functions using the classes in the models.
+Then the html code is generated with the html files in the view and send it to the browser.
+
+
+
+
+2. How could you test user interfaces with the testing facilities in play! framework?
+The play! framework provides selenium for interface testing. It tests the application in an automated browser.
+We can use it using the #{selenium /} tag. It generates HTML requests to test the interface.
+With selenium we can for example login to our page using code and test our login function.

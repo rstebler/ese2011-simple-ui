@@ -66,10 +66,10 @@ public class Calendar {
 		for(Event event: calendar.events.values()) {
 			if(event.getEnd().after(date) && (event.getIsPublic() || caller.equals(calendar.owner))) {
 				events.add(event);
-			    Comparator<Event> comparator = new EventDateComparator();
-			    java.util.Collections.sort(events, comparator);
 			}
 		}
+	    Comparator<Event> comparator = new EventDateComparator();
+		java.util.Collections.sort(events, comparator);
 		return events;
 	}
 	
