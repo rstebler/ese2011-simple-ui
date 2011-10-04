@@ -11,7 +11,6 @@ public class User {
 	
 	private String name;
 	private String password;
-	//private List<Calendar> calendars = new LinkedList<Calendar>();
 	private HashMap<String, Calendar> calendars = new HashMap<String, Calendar>();
 	
 	public User(String name, String password) {

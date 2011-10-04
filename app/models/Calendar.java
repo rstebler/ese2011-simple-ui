@@ -10,7 +10,6 @@ import java.util.List;
 
 public class Calendar {
 	
-	//private List<Event> events = new LinkedList<Event>();
 	private HashMap<String, Event> events = new HashMap<String, Event>();
 	private String name;
 	private User owner;
